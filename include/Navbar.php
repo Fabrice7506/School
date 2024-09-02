@@ -1,4 +1,6 @@
-<?php include('header.php') ?>
+<?php 
+  include('header.php');
+?>
 
 <nav class="navbar navbar-expand-lg mx-4 my-3 p-2 fixed-top " style="background-color: #0093E9;
 background-image: linear-gradient(32deg, #0093E9 0%, #80D0C7 100%); border-radius:300px; ">

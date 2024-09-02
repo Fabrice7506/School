@@ -1,11 +1,19 @@
 
 <?php include('../include/header.php') ?>
-<?php include('../include/Navbar.php') ?>
+<?php 
+    include('../include/Navbar.php');
+    include('../Database/db.php');
+?>
+<?php 
+    $students = $connexion ->prepare('SELECT count(Cod_El) As total FROM elève ');
+    $students ->execute(array());
+    $Show = $students -> fetch();
+?>
       
       <div class="cardBox">
             <div class="card text-center">
                 <div>
-                    <div class="numbers">1,504</div>
+                    <div class="numbers"><?= $Show['total'] ?></div>
                     <div class="cardName">Nombre d'etudiants</div>
                 </div>
 
