@@ -8,6 +8,14 @@
     $students = $connexion ->prepare('SELECT count(Cod_El) As total FROM elève ');
     $students ->execute(array());
     $Show = $students -> fetch();
+
+    $teacher = $connexion ->prepare('SELECT count(Mat_prof) As total FROM professeur');
+    $teacher->execute(array());
+    $Show_teacher = $teacher -> fetch();
+
+    $classe = $connexion ->prepare('SELECT count(Cod_Classe) As total FROM classe');
+    $classe->execute(array());
+    $Show_classe = $classe -> fetch();
 ?>
       
       <div class="cardBox">
@@ -24,7 +32,7 @@
 
             <div class="card text-center">
                 <div>
-                    <div class="numbers">80</div>
+                    <div class="numbers"><?= $Show_teacher['total'] ?></div>
                     <div class="cardName">Nombre de professeur</div>
                 </div>
 
@@ -35,7 +43,7 @@
 
             <div class="card text-center">
                 <div>
-                    <div class="numbers">284</div>
+                    <div class="numbers"><?= $Show_classe['total'] ?></div>
                     <div class="cardName">Nombre de classe</div>
                 </div>
 
