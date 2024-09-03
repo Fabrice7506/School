@@ -25,6 +25,8 @@ background-image: linear-gradient(32deg, #0093E9 0%, #80D0C7 100%); border-radiu
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" style=" font-family: 'Poppins', sans-serif; font-weight: 500;" aria-current="page" href="../view/teacher.php">Professeurs</a>
+        </li><li class="nav-item">
+          <a class="nav-link text-white" style=" font-family: 'Poppins', sans-serif; font-weight: 500;" aria-current="page" href="../view/teacher.php">Comptabilité</a>
         </li>
        
       </ul>

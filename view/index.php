@@ -16,6 +16,10 @@
     $classe = $connexion ->prepare('SELECT count(Cod_Classe) As total FROM classe');
     $classe->execute(array());
     $Show_classe = $classe -> fetch();
+
+    $students_10 = $connexion ->prepare('SELECT * FROM elève,classe WHERE elève.Cod_Classe = classe.Cod_Classe ORDER BY Cod_El LIMIT 10');
+    $students_10 ->execute(array());
+    $Show_students = $students_10 -> fetchAll();
 ?>
       
       <div class="cardBox">
@@ -69,7 +73,7 @@
             <div class="recentOrders">
                 <div class="cardHeader">
                     <h2>Recemment Inscrit</h2>
-                    <a href="#" class="btn">Voir tout</a>
+                    <a href="students.php" class="btn">Voir tout</a>
                 </div>
 
                 <table>
@@ -84,76 +88,26 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Akaffou paul</td>
-                            <td>jean jacque</td>
-                            <td>3 ème</td>
-                            <td>3eme 6</td>
-                            <td><span class="status return">Non soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Jayson</td>
-                            <td>Tatum</td>
-                            <td>3 ème</td>
-                            <td>3eme 6</td>
-                            <td><span class="status delivered">soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 1</td>
-                            <td><span class="status return">Non soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 2</td>
-                            <td><span class="status delivered">soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 2</td>
-                            <td><span class="status  delivered">soldé</td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 4</td>
-                            <td><span class="status return">Non soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 5</td>
-                            <td><span class="status  delivered">soldé</td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 6</td>
-                            <td><span class="status return">Non soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 1</td>
-                            <td><span class="status return">Non soldé</span></td>
-                        </tr>
-                        <tr>
-                            <td>Kone</td>
-                            <td>Koffi jean</td>
-                            <td>3 ème</td>
-                            <td>3eme 4</td>
-                            <td><span class="status  delivered">soldé</span></td>
-                        </tr>
+                      <?php foreach($Show_students as $infoStudents): ?>
+                            
+                            <?php if($infoStudents['statut']==0){
+                                $class = 'status return';
+                                $text = 'Non soldé';
+                            }else{
+                                $class = 'status delivered';
+                                $text = 'soldé';
+                            } 
+                            ?>
+                          <tr>
+                          <td><?= $infoStudents['Nom_El'] ?></td>
+                          <td><?= $infoStudents['Pren_El'] ?></td>
+                          <td><?= $infoStudents['DatN_El'] ?></td>
+                          <td><?= $infoStudents['Com_El'] ?></td>
+                          <td><?= $infoStudents['lib_classe'] ?></td>
+                          <td><?= $infoStudents['Nation_El'] ?></td>
+                          <td><span class="<?= $class ?>"><?= $text ?></span></td>
+                          </tr>
+                          <?php endforeach ; ?>
 
                        
                     </tbody>
