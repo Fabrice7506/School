@@ -3,7 +3,7 @@
 ?>
 
 <nav class="navbar navbar-expand-lg mx-4 my-3 p-2 fixed-top " style="background-color: #0093E9;
-background-image: linear-gradient(32deg, #0093E9 0%, #80D0C7 100%); border-radius:300px; ">
+background-image: linear-gradient(32deg, #0093E9 0%, #80D0C7 100%); border-radius:300px; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
 
   <div class="container-fluid">
     <a class="navbar-brand" href="../view/index.php" style="font-family: 'Nerko One', cursive;
@@ -26,7 +26,7 @@ background-image: linear-gradient(32deg, #0093E9 0%, #80D0C7 100%); border-radiu
         <li class="nav-item">
           <a class="nav-link text-white" style=" font-family: 'Poppins', sans-serif; font-weight: 500;" aria-current="page" href="../view/teacher.php">Professeurs</a>
         </li><li class="nav-item">
-          <a class="nav-link text-white" style=" font-family: 'Poppins', sans-serif; font-weight: 500;" aria-current="page" href="../view/teacher.php">Comptabilité</a>
+          <a class="nav-link text-white" style=" font-family: 'Poppins', sans-serif; font-weight: 500;" aria-current="page" href="../view/comptabilité.php">Comptabilité</a>
         </li>
        
       </ul>

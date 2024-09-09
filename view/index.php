@@ -5,6 +5,7 @@
     include('../Database/db.php');
 ?>
 <?php 
+    $total = 0;
     $students = $connexion ->prepare('SELECT count(Cod_El) As total FROM elève ');
     $students ->execute(array());
     $Show = $students -> fetch();
@@ -20,6 +21,16 @@
     $students_10 = $connexion ->prepare('SELECT * FROM elève,classe WHERE elève.Cod_Classe = classe.Cod_Classe ORDER BY Cod_El LIMIT 10');
     $students_10 ->execute(array());
     $Show_students = $students_10 -> fetchAll();
+
+    $CA = $connexion -> prepare ('SELECT Mont_vers FROM versement');
+    $CA -> execute(array());
+    $result_CA = $CA -> fetchAll(PDO::FETCH_ASSOC);
+    $CA -> closeCursor();
+
+    foreach($result_CA as $Chiffre){
+      $total = $total + $Chiffre['Mont_vers'];
+    }
+    
 ?>
       
       <div class="cardBox">
@@ -58,7 +69,7 @@
 
             <div class="card text-center">
                 <div>
-                    <div class="numbers">7.000.000 </div>
+                    <div class="numbers"><?= $total ?> </div>
                     <div class="cardName">Chiffre d'affaire</div>
                 </div>
 

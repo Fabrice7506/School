@@ -71,10 +71,9 @@
   body {
   min-height: 100vh;
   overflow-x: hidden;
-  background-image: url('../Asset/img/pieces-blue-stationery.jpg');
+  background-image: url('../Asset/img/blue-wide-background-with-linear-blurred-gradient-free-vector.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 }
 th,td{
     color: white;
